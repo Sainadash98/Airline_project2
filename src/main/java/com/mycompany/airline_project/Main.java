@@ -167,7 +167,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
         // TODO add your handling code here:
-        AddCustomer customer=new AddCustomer();
+        AddCustomer_1 customer=new AddCustomer_1();
         Desktop.add(customer);
         customer.setVisible(true);
     }//GEN-LAST:event_jMenu1ActionPerformed
@@ -183,7 +183,7 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        AddCustomer customer=new AddCustomer();
+        AddCustomer_1 customer=new AddCustomer_1();
          Desktop.add(customer);
          customer.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
