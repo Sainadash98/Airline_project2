@@ -35,7 +35,7 @@ public class AddAdmin extends javax.swing.JInternalFrame {
             Connection con;
             //prepare prepares the statement to show or something
             PreparedStatement pre;
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/ airline_project","root","puja");
             pre=con.prepareStatement("Select MAX(AdminID) from Admin");
             ResultSet rs =pre.executeQuery();
@@ -262,9 +262,10 @@ public class AddAdmin extends javax.swing.JInternalFrame {
             Connection con;
             //prepare prepares the statement to show or something
             PreparedStatement pre;
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/ airline_project","root","puja");
-            pre=con.prepareStatement("insert into Admin()");
+//            pre=con.prepareStatement("insert into Admin()");
+             pre = con.prepareStatement("INSERT INTO admin(AdminID, FirstName,LastName,UserName,Password) VALUES (?, ?, ?, ?, ?)");
             pre.setString(1, AdminID);
             pre.setString(2,FirstName );
             pre.setString(3,LastName );
