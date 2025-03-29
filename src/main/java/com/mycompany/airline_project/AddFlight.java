@@ -38,7 +38,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
             Connection con;
             //prepare prepares the statement to show or something
             PreparedStatement pre;
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/ airline_project","root","puja");
             pre=con.prepareStatement("Select MAX(FlightID) from Flight");
             ResultSet rs =pre.executeQuery();
@@ -57,9 +57,9 @@ public class AddFlight extends javax.swing.JInternalFrame {
             
         
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddCustomer_1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(AddCustomer_1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -262,7 +262,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
         jLabel10.setBackground(new java.awt.Color(0, 51, 204));
         jLabel10.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Date Of Flight");
+        jLabel10.setText("Date");
 
         fare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,7 +336,7 @@ public class AddFlight extends javax.swing.JInternalFrame {
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,8 +423,10 @@ public class AddFlight extends javax.swing.JInternalFrame {
             //prepare prepares the statement to show or something
             PreparedStatement pre;
             Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost/ airline_project","root","puja");
-            pre=con.prepareStatement("Insert into the Flight(flightID,flightName,arrival,departure,duration,seats,fare,date)values(?,?,?,?,?,?,?)");
+            con=DriverManager.getConnection("jdbc:mysql://localhost/airline_project","root","puja");
+//            pre=con.prepareStatement("Insert into the flight(FlightID,FlightName,Arrival,Departure,Duration,Seats,Fare,Date)values(?,?,?,?,?,?,?,?)");
+              pre = con.prepareStatement("INSERT INTO flight(FlightID, FlightName, Arrival, Departure, Duration, Seats, Fare, `Date`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
             pre.setString(1,FlightID);
             pre.setString(2,FlightName);
             pre.setString(3,Arrival);
@@ -451,9 +453,9 @@ public class AddFlight extends javax.swing.JInternalFrame {
             
         
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AddCustomer_1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(AddCustomer_1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddFlight.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         
